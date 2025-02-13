@@ -1,0 +1,17 @@
+apiVersion: apps/v1 #definiu versão
+kind: Deployment #definiu tipo deployment
+metadata: #definiu metadata do app em si dando nome de deployment
+  name: flask-app-deployment
+spec: #especificações
+  replicas: 4
+  selector:
+    matchLabels:
+      app: flask-app #definiu que vai ter um aplicativo chamado flask-app
+  template: #descreve como o aplicativo vai rodar
+    metadata:
+      labels:
+        app: flask-app
+    spec:
+      containers: #definiu que o flask app vai ter containers com o nome e a imagem q sera usada
+        - name: flaskk
+          image: stanislavnapravnik/flask-hub-projeto:3
